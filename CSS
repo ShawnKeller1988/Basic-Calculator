@@ -1,0 +1,128 @@
+#calculator {
+    font-family: 'Poor Richard';
+    width: 400px;
+    height: 700px;
+    margin: 50px auto 15px auto;
+    border: solid 2px black;
+    border-radius: 40px;
+    box-shadow: -10px -10px 10px 10px rgba(255, 0, 0, .5), 10px 10px 15px 10px rgba(255, 0, 0, .5);
+    background-image: url('../../images/Wood Grain.jpg');
+}
+
+#screen {
+    padding: 10px;
+    width: 350px;
+    height: 200px;
+    border: solid 1px black;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 20px;
+    background-color: rgba(254, 254, 254, .8);
+    color: #000;
+}
+
+#last {
+    font-size: 25pt;
+    text-align: right;
+    margin: 5px;
+}
+
+#last-value {
+    margin: 0;
+}
+
+#current {
+    font-size: 50pt;
+    text-align: right;
+}
+
+#current-value {
+
+}
+
+#keypad {
+    width: 400px;
+    height: 400px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+    #keypad#clear, .operator#clear {
+        width: 176.668px;
+        height: 80px;
+        border: 2px solid black;
+        border-radius: 40px;
+        background-color: rgba(255, 0, 0, .4);
+    }
+
+        #keypad#clear, .operator#clear:hover {
+            background-color: rgb(255, 0, 0);
+        }
+
+    #keypad#backspace, .operator#backspace {
+        background-color: rgba(0, 175, 255, .7);
+        
+    }
+
+        #keypad#backspace, .operator#backspace:hover {
+            background-color: rgb(0, 175, 255);
+        }
+
+.operator {
+    background-color: rgba(175, 175, 175, .7);
+}
+
+    .operator:hover {
+        background-color: rgb(175, 175, 175);
+    }
+
+    .operator:focus {
+        outline: 0;
+    }
+
+    .operator.equal {
+        width: 176.668px;
+        height: 80px;
+        border: 2px solid black;
+        border-radius: 40px;
+        background-color: rgba(255, 188, 0, .7);
+    }
+
+        .operator.equal:hover {
+            background-color: rgb(255, 150, 0);
+        }
+
+        .operator.equal:hover {
+            outline: 0;
+        }
+
+.number {
+    background-color: rgba(0, 0, 0, .7);
+}
+
+    .number:hover {
+        background-color: rgb(0,0,0);
+    }
+
+    .number:focus {
+        outline: 0;
+    }
+
+.number, .operator {
+    width: 80px;
+    height: 80px;
+    padding: 0;
+    margin: 6px 8.334px 6px 8.334px;
+    border: 2px solid black;
+    border-radius: 50%;
+    font-weight: bolder;
+    font-size: 22px;
+}
+
+    .number.zero {
+        width: 176.668px;
+        height: 80px;
+        border: 2px solid black;
+        border-radius: 40px;
+    }
