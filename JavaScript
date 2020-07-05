@@ -1,0 +1,78 @@
+function getLast() {
+    return document.getElementById("last-value").innerText;
+}
+function showLast(num) {
+    document.getElementById("last-value").innerText = num;
+}
+function getCurrent() {
+    return document.getElementById("current-value").innerText;
+}
+function showCurrent(num) {
+    if (num == "") {
+        document.getElementById("current-value").innerText = num;
+    }
+    else {
+        document.getElementById("current-value").innerText = getFormattedNumber(num);
+    }
+}
+function getFormattedNumber(num) {
+    if (num == "-") {
+        return "";
+    }
+    var n = Number(num);
+    var value = n.toLocaleString("en");
+    return value;
+}
+function reverseNumberFormat(num) {
+    return Number(num.replace(/,/g, ''));
+}
+var operator = document.getElementsByClassName("operator");
+for (var i = 0; i < operator.length; i++) {
+    operator[i].addEventListener('click', function () {
+        if (this.id == "clear") {
+            showLast("");
+            showCurrent("");
+        }
+        else if (this.id == "backspace") {
+            var current = reverseNumberFormat(getCurrent()).toString();
+            if (current) {
+                current = current.substr(0, current.length - 1);
+                showCurrent(current);
+            }
+        }
+        else {
+            var current = getCurrent();
+            var last = getLast();
+            if (current == "" && last != "") {
+                if (isNaN(last[last.length - 1])) {
+                    last = last.substr(0, last.length - 1);
+                }
+            }
+            if (current != "" || last != "") {
+                current = current == "" ? current : reverseNumberFormat(current);
+                last = last + current;
+                if (this.id == "=") {
+                    var screen = eval(last);
+                    showCurrent(screen);
+                    showLast("");
+                }
+                else {
+                    last = last + this.id;
+                    showLast(last);
+                    showCurrent("");
+                }
+            }
+        }
+
+    });
+}
+var number = document.getElementsByClassName("number");
+for (var i = 0; i < number.length; i++) {
+    number[i].addEventListener('click', function () {
+        var current = reverseNumberFormat(getCurrent());
+        if (current != NaN) { //if current is a number
+            current = current + this.id;
+            showCurrent(current);
+        }
+    });
+}
